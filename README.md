@@ -83,9 +83,9 @@ Secret manifest or real credential is stored in this repository.
 
 ### Namespace separation
 
-- dev page output: **[write what curl returned for 8081]**
-- prod page output: **[write what curl returned for 8082]**
-- `APP_ENV` in dev: **[value]**, in prod: **[value]**
+- dev page output: **[Its returned  Hello from dev & winter-arc day18 *
+- prod page output: **Hello from prod & winter-arc-day18 ]**
+- `APP_ENV` in dev: **dev**, in prod: **[prod]**
 
 Evidence: `evidence/[dev-page.png]`, `evidence/[prod-page.png]`, `evidence/[env-values.png]`
 
@@ -98,8 +98,8 @@ I edited the dev ConfigMap with `kubectl edit configmap site -n dev`,
 changing `APP_ENV` and the page text.
 
 - Mounted page file: **[describe what you saw and roughly how long it took]**
-- `APP_ENV` environment variable before restart: **[value]**
-- After `kubectl rollout restart deployment/web -n dev`: **[value]**
+- `APP_ENV` environment variable before restart: **[dev-]**
+- After `kubectl rollout restart deployment/web -n dev`: **[dev-updated]**
 
 ```bash
 kubectl rollout restart deployment/web -n dev
@@ -149,7 +149,7 @@ boundary, so RBAC and NetworkPolicy are needed for stronger isolation.
 
 ## Troubleshooting / lessons learned
 
-- **[Write one problem you actually hit, what command showed it, and how you fixed it. If none, write what you learned from `kubectl describe pod`.]**
+
 - Both objects must exist in the same namespace as the Pod before it can start.
 - Env variables and mounted files react differently to ConfigMap changes.
 - Base64 is not encryption.
